@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <div class="container" id="container">
+      <h1>To do application</h1>
+      
+    </div>
+
+    
+   <section class="form-container">
+     <form method="POST" action="/register" class="register-form unactive">
+      <h2>REGISTER</h2>
+      <label for="username"
+        >Nom <input type="text" name="username" id="username" placeholder="Ex: Jeremy" required
+      /></label>
+      <label for="email"
+        >Email <input type="text" name="email" id="email" placeholder="Ex: Jeremy@gmail.com" required
+      /></label>
+      <label for="password"
+        >Mot de passe <input type="text" name="password" id="password" placeholder="Ex: 1234" required
+      /></label>
+      <button type="submit">S'enregistrer</button>
+      <span class="phrase">Already have an account ? <a href="" class="switchbtn"> Login</a></span>
+    </form>
+
+    
+    <form method="POST" action="/login" class="login-form">
+      <h2>LOGIN</h2>
+      <label for="username"
+        >Nom ou Email<input type="text" name="username" id="username" placeholder="Ex: Jeremy" required
+      /></label>
+      <label for="password"
+        >Mot de passe <input type="text" name="password" id="password" placeholder="Ex: 1234" required
+      /></label>
+      <button type="submit">Se connecter</button>
+            <span class="phrase">Don't have an account ? <a href="" class="switchbtn"> Register</a></span>
+    </form>
+   </section>
+
+       <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>

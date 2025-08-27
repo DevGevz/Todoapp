@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Pannel</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styleAdmin.css') }}"
+    />
+  </head>
+  <body>
+    <h1>YOUR LOGGED AS AN ADMIN</h1>
+    <ul>
+      <li>
+        <span class="User-header"><h2>Users:</h2></span
+        ><span class="Email-header"><h2>Email:</h2></span
+        ><span class="Role-header"><h2>Role:</h2></span>
+      </li>
+      {% for id, name, email, password, role in users %}
+      <li>
+        <span class="name">{{ name }}</span
+        ><span class="email">{{ email }}</span
+        ><span class="role">{{ role }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}">SE DECONNECTER</a>
+    <script src="{{ url_for('static', filename='scriptAdmin.js') }}"></script>
+  </body>
+</html>

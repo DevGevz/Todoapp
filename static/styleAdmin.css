@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --primary: #E5E7EB;
+    --secondary: #10B981;
+    --third: #1F2937;
+}
+
+h2{
+    text-align: center;
+    font-size: clamp(2rem, 2.6rem, 4rem);
+    color: var(--primary);
+    text-decoration: underline;
+    font-family: cursive;
+}
+
+ul{
+    display: flex;
+    /* border: 1px solid; */
+    flex-direction: column;
+    margin-bottom: 5vh;
+    margin-inline: 160px;
+}
+li {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* ajuste selon tes besoins */
+  border: 1px solid black;
+  list-style: none;
+}
+li span {
+  /* border: 1px solid; */
+  padding: 5px 15px;
+  border-left: 1px solid black;
+  font-size: 1.2rem;
+}
+.name{
+    font-weight: 900;
+}
+.email{
+    color: rgb(51, 0, 172);
+}
+
+.email:hover{
+    text-decoration: underline;
+}
+
+.role{
+    font-style: italic;
+}
+
+.User-header, .Email-header, .Role-header{
+    padding-bottom: 1vh;
+    margin-inline: none;
+    display: flex;
+    border: none;
+    justify-content: center;
+}
+.User-header, .User-header h2{
+    background: var(--third);
+}
+
+.Email-header, .Email-header h2{
+    background: var(--secondary);
+    color: var(--third);
+}
+
+.Role-header, .Role-header h2{
+    color: var(--secondary);
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDoApp - {{ session['name'] }}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='stylesLogged.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Panneau personnel de {{ session['name'] }}</h1>
+      <nav>
+        <li>
+          <a id="AccountBtn"><i class="fa-solid fa-user"></i></a>
+        </li>
+        <li>
+          <a href="{{ url_for('index') }}"><i class="fa-solid fa-house"></i></a>
+        </li>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h2>Ajouter une tâche</h2>
+        <div class="input-field">
+          <label class="Image-Input">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <i class="fa-solid fa-laptop-code"></i>
+            <i class="fa-solid fa-burger"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <i class="fa-solid fa-dumbbell"></i>
+            <i class="fa-solid fa-pen"></i>
+          </label>
+          <label>
+            <h2>Tâche:</h2>
+            <textarea id="TaskNameInput"></textarea>
+          </label>
+          <label>
+            <h2>Description:</h2>
+            <textarea id="TaskInput"></textarea>
+          </label>
+          <button id="ValidTask">Ajouter</button>
+        </div>
+      </section>
+      <div class="grid" id="taskGrid">
+        <h2 class="grid-title">To do list</h2>
+        <!-- <div class="task-card">
+          <i class="fa-solid fa-pen"></i>
+          <h2>${task.name}</h2>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis veniam iure nobis dignissimos sint voluptatem iste asperiores neque, deleniti eaque similique accusamus fugit facere veritatis odit laborum ducimus quis architecto.</p>
+          <button onclick="deleteTask(this)"><i class="fa-solid fa-trash"></i></button>
+        </div> -->
+      </div>
+    </main>
+    <footer>
+      <div class="container unactive">
+        <div class="NameModifyField">
+          <form method="POST" action="/update_name">
+            <h2>Nom: {{ session['name'] }}</h2>
+            <input
+              type="text"
+              name="new_name"
+              placeholder="Nouveau Nom:"
+              required
+            />
+            <button type="submit">Valider</button>
+          </form>
+        </div>
+
+        <div class="EmailModifyField">
+          <form method="POST" action="/update_email">
+            <h2>Email: {{ session['email'] }}</h2>
+            <input
+              type="email"
+              name="new_email"
+              placeholder="Nouvelle Adresse:"
+              required
+            />
+            <button type="submit">Valider</button>
+          </form>
+        </div>
+
+        <div class="DeleteAccountField">
+          <form method="POST" action="/delete_account">
+            <button type="submit">Supprimer ce compte</button>
+          </form>
+        </div>
+      </div>
+    </footer>
+    <script>
+      window.initialTasks = {{ tasks | tojson | safe }};
+    </script>
+    <script src="{{ url_for('static', filename='scriptLogged.js') }}"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </body>
+</html>
