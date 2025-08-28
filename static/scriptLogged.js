@@ -170,9 +170,11 @@ ManageAccountBtn.addEventListener("click", (e) => {
   if (!container.classList.contains("unactive")) {
     container.classList.add("unactive");  // masque container
     main.classList.remove("unactive");    // affiche main
+    ManageAccountBtn.innerHTML = `<i class="fa-solid fa-user"></i>`
   } else {
     container.classList.remove("unactive"); // affiche container
     main.classList.add("unactive");         // masque main
+    ManageAccountBtn.innerHTML = `<i class="fa-solid fa-arrow-left"></i>`
   }
 });
 
